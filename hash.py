@@ -19,5 +19,16 @@ def hash_file(file_path):
 
         return h.hexdigest()
 
+def verify_intergrity(file1,file2):
+    hash1 = hash_file(file1)
+    hash2 = hash_file(file2)
+
+    print(f"Checking integrity between {file1} and {file2}")
+
+    if hash1 == hash2:
+        return "File is intact (AI giving 2 blue ticks :)"
+    return "File has been modified"
+
 if __name__ == "__main__":
     print(f"SHA hash of this file is : {hash_file("sample_files/sample.txt")}")
+    print(verify_intergrity("sample_files/sample.txt","sample_files/sample.txt"))
